@@ -6,11 +6,10 @@ $(document).ready(function(){
 	    detailView: true,
 	    showExport: true,
 		detailFormatter: insertNewRow,
-	    pageSize: 10, //每页的记录行数（*）
+		pageSize: 10, //每页的记录行数（*）
  		pageList: [10, 25, 50, 100], //可供选择的每页的行数（*）
- 		clickToSelect: true,  //是否启用点击选中行
- 		//showToggle: true,     //是否显示详细视图和列表视图的切换按钮
- 		showRefresh: true,
+ 		search: true,
+ 		// clickToSelect: true,  //是否启用点击选中行
 	    columns: [{
 	        field: 'name',
 	        title: '城市公司'
@@ -75,6 +74,7 @@ $(document).ready(function(){
 	function insertNewRow(index, row){
 		debugger
 		var detailView = $('#'+row.name).bootstrapTable({
+			detailView: true,
 			columns: [{
 			        field: 'name',
 			        title: '姓名'
@@ -92,37 +92,38 @@ $(document).ready(function(){
 		        "name": "bootstrap-table",
 		        "stargazers_count": "526",
 		        "forks_count": "122",
-		        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)"
+		        "description": "An extended Bootstrap table with radio, checkbox, sort, pagination, and other added features. (supports twitter bootstrap v2 and v3)",
+		        "tesst": "test"
 		    }, {
 		        "name": "multiple-select",
 		        "stargazers_count": "288",
 		        "forks_count": "150",
-		        "description": "A jQuery plugin to select multiple elements with checkboxes :)"
+		        "description": "A jQuery plugin to select multiple elements with checkboxes :)",
+		        "tesst": "test"
 		    }, {
 		        "name": "bootstrap-show-password",
 		        "stargazers_count": "32",
 		        "forks_count": "11",
-		        "description": "Show/hide password plugin for twitter bootstrap."
+		        "description": "Show/hide password plugin for twitter bootstrap.",
+		        "tesst": "test"
 		    }, {
 		        "name": "blog",
 		        "stargazers_count": "13",
 		        "forks_count": "4",
-		        "description": "my blog"
+		        "description": "my blog",
+		        "tesst": "test"
 		    }, {
 		        "name": "scutech-redmine",
 		        "stargazers_count": "6",
 		        "forks_count": "30",
-		        "description": "Redmine notification tools for chrome extension."
+		        "description": "Redmine notification tools for chrome extension.",
+		        "tesst": "test"
 			}]
 		});
-		if($('#'+row.name).length>1){
-			alert($('#'+row.name).length);
-			$('#'+row.name).remove();
-		}
 		return detailView;
 	};
-	$('#btn').click(function(){
-		var html = "<table id=\"" + "test" + "\"></table>";
-		$("table").after(html);
-	})
+	$(".fixed-table-toolbar .columns .export").append('<button class="btn btn-default" type="button" id="btnExport" title="下载""><i class="glyphicon glyphicon-arrow-down"></i></button>');
+	$('#btnExport').click(function(){
+		htmlToExcel("表头", "制作者", "total", 1, 1);	 
+	});
 });

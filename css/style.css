@@ -1,3 +1,23 @@
 .display-none {
-	display: none
+	display: none;
+}
+
+#btnExport {
+	margin-left: 5px;
+}
+
+#广州东 tr > td:first-child,
+#广州北 tr > td:first-child,
+#深圳公司 tr > td:first-child,
+#东莞公司 tr > td:first-child,
+#广州南 tr > td:first-child {
+	display: none;
+}
+
+#广州东 tr > th:first-child,
+#广州北 tr > th:first-child,
+#深圳公司 tr > th:first-child,
+#东莞公司 tr > th:first-child,
+#广州南 tr > th:first-child {
+	display: none;
 }
